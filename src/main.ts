@@ -1,5 +1,5 @@
 import { wizards, addWizard, filterBy } from "./repository.js";
-
+import type { SpellEvent } from "./types.js";
 
 
 const wizard1 = addWizard({
@@ -31,3 +31,22 @@ const gryffindors = filterBy(wizards, "house", "Gryffindor");
 
 console.log("Sorciers de Gryffindor :");
 console.log(gryffindors);
+
+
+
+// EXERCICE 3 : Événements de sorts
+
+const event1: SpellEvent = {
+  type: "spell_cast",
+  wizardId: 1,
+  spell: "Expelliarmus"
+};
+
+const event2: SpellEvent = {
+  type: "spell_failed",
+  wizardId: 2,
+  reason: "Puissance insuffisante"
+};
+
+console.log(event1);
+console.log(event2);
