@@ -28,3 +28,9 @@ export type SpellEvent = Extract<
 AcademyEvent,
 { type: "spell_cast" | "spell_failed" }
 >;
+
+export type House =
+  | "Gryffindor"
+  | "Slytherin"
+  | "Ravenclaw"
+  | "Hufflepuff";

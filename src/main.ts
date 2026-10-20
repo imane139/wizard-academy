@@ -1,5 +1,8 @@
-import { wizards, addWizard, filterBy } from "./repository.js";
+import { wizards, addWizard, filterBy, isHouse } from "./repository.js";
 import type { SpellEvent } from "./types.js";
+import { ValidatePower } from "./decorators.js";
+import { Cache } from "./decorators.js";
+
 
 
 const wizard1 = addWizard({
@@ -50,3 +53,45 @@ const event2: SpellEvent = {
 
 console.log(event1);
 console.log(event2);
+
+
+
+class Spell {
+  @ValidatePower
+  cast(power: number): void {
+    console.log(`Sort lancé avec une puissance de ${power}`);
+  }
+}
+
+const spell = new Spell();
+
+spell.cast(50);
+spell.cast(0);
+
+try {
+  spell.cast(-10);
+} catch (error) {
+  if (error instanceof Error) {
+    console.log(error.message);
+  }
+}
+
+
+class SpellCalculator {
+  @Cache
+  calculate(power: number): number {
+    console.log("Calcul en cours...");
+    return power * 2;
+  }
+}
+
+const calculator = new SpellCalculator();
+
+console.log(calculator.calculate(50));
+console.log(calculator.calculate(50));
+console.log(calculator.calculate(20));
+console.log(calculator.calculate(50));
+
+console.log(isHouse("Gryffindor"));
+console.log(isHouse("Barcelona"));
+console.log(isHouse(123));

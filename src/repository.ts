@@ -23,3 +23,14 @@ export function filterBy<T, K extends keyof T>(
 ): T[] {
   return items.filter((item) => item[key] === value);
 }
+
+import type { House } from "./types.js";
+
+export function isHouse(value: unknown): value is House {
+  return (
+    value === "Gryffindor" ||
+    value === "Slytherin" ||
+    value === "Ravenclaw" ||
+    value === "Hufflepuff"
+  );
+}
