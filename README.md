@@ -14,7 +14,6 @@ advanced TypeScript concepts through a magical academy.
 - Utility types
 - Conditional types
 - Academy events
-- Automated tests
 
 ## Technologies
 
@@ -34,9 +33,6 @@ npm run build
 
 npm start
 
-## Tests
-
-npm test
 
 ## Project Structure
 
@@ -45,4 +41,3 @@ npm test
 - src/decorators.ts
 - src/services.ts
 - src/main.ts
-- tests/academy.test.mjs
